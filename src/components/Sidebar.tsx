@@ -1,30 +1,43 @@
+"use client";
+
+import Link from "next/link";
+import { usePathname } from "next/navigation";
 import Logo from "./Logo";
 
 const sidebarGroups = [
   {
-    label: "AI AGENTS",
+    label: "OPERATIONS",
     items: [
-      { name: "Agent Dashboard", icon: "dashboard", active: true },
-      { name: "Content Agents", icon: "agents" },
-      { name: "Pricing Agent", icon: "pricing" },
-      { name: "Analytics Agent", icon: "analytics" },
+      { name: "Dashboard", href: "/", icon: "dashboard" },
+      { name: "Product Catalog", href: "/catalog", icon: "catalog" },
+      { name: "Warehouse Batches", href: "/batches", icon: "batches" },
+      { name: "Testing Station", href: "/testing", icon: "testing" },
     ],
   },
   {
-    label: "CONTENT & PRODUCTS",
+    label: "SALES & MARKETING",
     items: [
-      { name: "Product Catalog", icon: "catalog" },
-      { name: "Digital Signage", icon: "signage" },
-      { name: "Campaign Manager", icon: "campaign" },
-      { name: "Media Library", icon: "media" },
+      { name: "Active Listings", href: "/listings", icon: "listings" },
+      { name: "Funnel Manager", href: "/funnels", icon: "funnels" },
+      { name: "Lead CRM", href: "/crm", icon: "crm" },
+      { name: "Order Tracker", href: "/orders", icon: "orders" },
     ],
   },
   {
-    label: "CLIENTS & CONFIG",
+    label: "TOOLS",
     items: [
-      { name: "Client Accounts", icon: "clients" },
-      { name: "Store Locations", icon: "stores" },
-      { name: "System Settings", icon: "settings" },
+      { name: "Calendar", href: "/calendar", icon: "calendar" },
+      { name: "Invoices", href: "/invoices", icon: "invoices" },
+      { name: "Media Library", href: "/media", icon: "media" },
+      { name: "Social Manager", href: "/social", icon: "social" },
+    ],
+  },
+  {
+    label: "CONFIG",
+    items: [
+      { name: "Digital Signage", href: "/signage", icon: "signage" },
+      { name: "Store Locations", href: "/locations", icon: "locations" },
+      { name: "System Settings", href: "/settings", icon: "settings" },
     ],
   },
 ];
@@ -40,39 +53,59 @@ function SidebarIcon({ icon, active }: { icon: string; active?: boolean }) {
         <rect x="10" y="7" width="7" height="7" rx="1.5" stroke={color} strokeWidth="1.5" />
       </svg>
     ),
-    agents: (
-      <svg width="18" height="18" viewBox="0 0 18 18" fill="none">
-        <circle cx="9" cy="6" r="3" stroke={color} strokeWidth="1.5" />
-        <path d="M3 16c0-3.3 2.7-6 6-6s6 2.7 6 6" stroke={color} strokeWidth="1.5" strokeLinecap="round" />
-      </svg>
-    ),
-    pricing: (
-      <svg width="18" height="18" viewBox="0 0 18 18" fill="none">
-        <path d="M9 2v14M5 5h8M6 9h6M7 13h4" stroke={color} strokeWidth="1.5" strokeLinecap="round" />
-      </svg>
-    ),
-    analytics: (
-      <svg width="18" height="18" viewBox="0 0 18 18" fill="none">
-        <path d="M2 14l4-5 3 3 5-7" stroke={color} strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
-        <path d="M12 5h4v4" stroke={color} strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
-      </svg>
-    ),
     catalog: (
       <svg width="18" height="18" viewBox="0 0 18 18" fill="none">
         <rect x="2" y="2" width="14" height="14" rx="2" stroke={color} strokeWidth="1.5" />
         <path d="M2 7h14M7 7v9" stroke={color} strokeWidth="1.5" />
       </svg>
     ),
-    signage: (
+    batches: (
       <svg width="18" height="18" viewBox="0 0 18 18" fill="none">
-        <rect x="2" y="2" width="14" height="10" rx="1.5" stroke={color} strokeWidth="1.5" />
-        <path d="M6 15h6M9 12v3" stroke={color} strokeWidth="1.5" strokeLinecap="round" />
+        <rect x="3" y="8" width="12" height="8" rx="1.5" stroke={color} strokeWidth="1.5" />
+        <path d="M3 11h12" stroke={color} strokeWidth="1.5" />
+        <path d="M5 8V5a1.5 1.5 0 011.5-1.5h5A1.5 1.5 0 0113 5v3" stroke={color} strokeWidth="1.5" />
       </svg>
     ),
-    campaign: (
+    testing: (
       <svg width="18" height="18" viewBox="0 0 18 18" fill="none">
-        <path d="M3 9l3-6h6l3 6-3 6H6L3 9z" stroke={color} strokeWidth="1.5" />
-        <circle cx="9" cy="9" r="2" stroke={color} strokeWidth="1.5" />
+        <path d="M7 2v5L3 14a1.5 1.5 0 001.3 2.2h9.4A1.5 1.5 0 0015 14l-4-7V2" stroke={color} strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
+        <path d="M6 2h6" stroke={color} strokeWidth="1.5" strokeLinecap="round" />
+      </svg>
+    ),
+    listings: (
+      <svg width="18" height="18" viewBox="0 0 18 18" fill="none">
+        <circle cx="9" cy="9" r="7" stroke={color} strokeWidth="1.5" />
+        <path d="M9 5v4l3 2" stroke={color} strokeWidth="1.5" strokeLinecap="round" />
+      </svg>
+    ),
+    funnels: (
+      <svg width="18" height="18" viewBox="0 0 18 18" fill="none">
+        <path d="M2 3h14l-4 5v5l-2 2V8L2 3z" stroke={color} strokeWidth="1.5" strokeLinejoin="round" />
+      </svg>
+    ),
+    crm: (
+      <svg width="18" height="18" viewBox="0 0 18 18" fill="none">
+        <circle cx="7" cy="6" r="2.5" stroke={color} strokeWidth="1.5" />
+        <circle cx="12" cy="7" r="2" stroke={color} strokeWidth="1.2" />
+        <path d="M1 16c0-3 2.2-5 6-5s6 2 6 5" stroke={color} strokeWidth="1.5" strokeLinecap="round" />
+      </svg>
+    ),
+    orders: (
+      <svg width="18" height="18" viewBox="0 0 18 18" fill="none">
+        <rect x="2" y="3" width="14" height="12" rx="2" stroke={color} strokeWidth="1.5" />
+        <path d="M6 7h6M6 10h4" stroke={color} strokeWidth="1.5" strokeLinecap="round" />
+      </svg>
+    ),
+    calendar: (
+      <svg width="18" height="18" viewBox="0 0 18 18" fill="none">
+        <rect x="2" y="3" width="14" height="13" rx="2" stroke={color} strokeWidth="1.5" />
+        <path d="M2 7h14M6 1v4M12 1v4" stroke={color} strokeWidth="1.5" strokeLinecap="round" />
+      </svg>
+    ),
+    invoices: (
+      <svg width="18" height="18" viewBox="0 0 18 18" fill="none">
+        <path d="M4 2h10a1 1 0 011 1v12l-2-1-2 1-2-1-2 1-2-1-2 1V3a1 1 0 011-1z" stroke={color} strokeWidth="1.5" />
+        <path d="M7 6h4M7 9h4M7 12h2" stroke={color} strokeWidth="1.2" strokeLinecap="round" />
       </svg>
     ),
     media: (
@@ -82,17 +115,24 @@ function SidebarIcon({ icon, active }: { icon: string; active?: boolean }) {
         <path d="M2 13l4-4 3 3 2-2 5 5" stroke={color} strokeWidth="1.2" strokeLinecap="round" />
       </svg>
     ),
-    clients: (
+    social: (
       <svg width="18" height="18" viewBox="0 0 18 18" fill="none">
-        <circle cx="7" cy="6" r="2.5" stroke={color} strokeWidth="1.5" />
-        <circle cx="12" cy="7" r="2" stroke={color} strokeWidth="1.2" />
-        <path d="M1 16c0-3 2.2-5 6-5s6 2 6 5" stroke={color} strokeWidth="1.5" strokeLinecap="round" />
+        <circle cx="5" cy="9" r="2" stroke={color} strokeWidth="1.5" />
+        <circle cx="13" cy="5" r="2" stroke={color} strokeWidth="1.5" />
+        <circle cx="13" cy="13" r="2" stroke={color} strokeWidth="1.5" />
+        <path d="M7 8l4-2M7 10l4 2" stroke={color} strokeWidth="1.2" />
       </svg>
     ),
-    stores: (
+    signage: (
       <svg width="18" height="18" viewBox="0 0 18 18" fill="none">
-        <path d="M9 2L2 7v9h14V7L9 2z" stroke={color} strokeWidth="1.5" strokeLinejoin="round" />
-        <rect x="7" y="11" width="4" height="5" stroke={color} strokeWidth="1.2" />
+        <rect x="2" y="2" width="14" height="10" rx="1.5" stroke={color} strokeWidth="1.5" />
+        <path d="M6 15h6M9 12v3" stroke={color} strokeWidth="1.5" strokeLinecap="round" />
+      </svg>
+    ),
+    locations: (
+      <svg width="18" height="18" viewBox="0 0 18 18" fill="none">
+        <path d="M9 16s-5-4.35-5-8a5 5 0 0110 0c0 3.65-5 8-5 8z" stroke={color} strokeWidth="1.5" />
+        <circle cx="9" cy="8" r="2" stroke={color} strokeWidth="1.5" />
       </svg>
     ),
     settings: (
@@ -106,6 +146,8 @@ function SidebarIcon({ icon, active }: { icon: string; active?: boolean }) {
 }
 
 export default function Sidebar() {
+  const pathname = usePathname();
+
   return (
     <aside className="w-sidebar min-w-[260px] h-screen bg-card border-r border-border flex flex-col fixed left-0 top-0 z-30">
       <div className="px-5 pt-6 pb-4">
@@ -118,23 +160,29 @@ export default function Sidebar() {
               {group.label}
             </div>
             <ul className="space-y-0.5">
-              {group.items.map((item) => (
-                <li key={item.name}>
-                  <a
-                    href="#"
-                    className={`flex items-center gap-3 px-3 py-2 rounded-lg text-[13px] font-medium transition-colors ${
-                      item.active
-                        ? "bg-accent-dim text-white"
-                        : "text-muted-fg hover:bg-white/[0.03] hover:text-white"
-                    }`}
-                  >
-                    <span className={`flex-shrink-0 ${item.active ? "" : ""}`}>
-                      <SidebarIcon icon={item.icon} active={item.active} />
-                    </span>
-                    {item.name}
-                  </a>
-                </li>
-              ))}
+              {group.items.map((item) => {
+                const isActive =
+                  item.href === "/"
+                    ? pathname === "/"
+                    : pathname.startsWith(item.href);
+                return (
+                  <li key={item.name}>
+                    <Link
+                      href={item.href}
+                      className={`flex items-center gap-3 px-3 py-2 rounded-lg text-[13px] font-medium transition-colors ${
+                        isActive
+                          ? "bg-accent-dim text-white"
+                          : "text-muted-fg hover:bg-white/[0.03] hover:text-white"
+                      }`}
+                    >
+                      <span className="flex-shrink-0">
+                        <SidebarIcon icon={item.icon} active={isActive} />
+                      </span>
+                      {item.name}
+                    </Link>
+                  </li>
+                );
+              })}
             </ul>
           </div>
         ))}
@@ -142,10 +190,10 @@ export default function Sidebar() {
       <div className="px-4 py-4 border-t border-border">
         <div className="flex items-center gap-3 px-2">
           <div className="w-8 h-8 rounded-full bg-gradient-to-br from-accent/30 to-accent/10 flex items-center justify-center text-[11px] font-bold text-accent">
-            AJ
+            AS
           </div>
           <div className="flex flex-col">
-            <span className="text-[12px] font-medium text-white leading-tight">Alex Johnson</span>
+            <span className="text-[12px] font-medium text-white leading-tight">Andrew</span>
             <span className="text-[10px] text-muted">Admin</span>
           </div>
         </div>

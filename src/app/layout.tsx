@@ -2,8 +2,8 @@ import type { Metadata } from "next";
 import "./globals.css";
 
 export const metadata: Metadata = {
-  title: "MR Screen Enterprise Console",
-  description: "Multi-Agent Business Console",
+  title: "MR Screen — Enterprise Console",
+  description: "Multi-Agent Business Console for MR Screen",
 };
 
 export default function RootLayout({
@@ -13,7 +13,9 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en" className="dark">
-      <body className="font-sans antialiased not-italic">{children}</body>
+      <body className="min-h-screen bg-background text-foreground font-sans antialiased">
+        {children}
+      </body>
     </html>
   );
 }
