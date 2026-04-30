@@ -81,7 +81,7 @@ export default function TestingStationPage() {
           {batches.map((batch) => (
             <Link
               key={batch.id}
-              href={`/batches/${batch.id}`}
+              href={`/testing/${batch.id}`}
               className="bg-card border border-border rounded-xl p-5 hover:border-accent/30 transition-all group"
             >
               <div className="flex items-start justify-between">

@@ -33,6 +33,13 @@ const sidebarGroups = [
     ],
   },
   {
+    label: "AI AGENTS",
+    items: [
+      { name: "Agent Config", href: "/agents", icon: "agents" },
+      { name: "Agent Activity", href: "/agents/activity", icon: "activity" },
+    ],
+  },
+  {
     label: "CONFIG",
     items: [
       { name: "Digital Signage", href: "/signage", icon: "signage" },
@@ -133,6 +140,18 @@ function SidebarIcon({ icon, active }: { icon: string; active?: boolean }) {
       <svg width="18" height="18" viewBox="0 0 18 18" fill="none">
         <path d="M9 16s-5-4.35-5-8a5 5 0 0110 0c0 3.65-5 8-5 8z" stroke={color} strokeWidth="1.5" />
         <circle cx="9" cy="8" r="2" stroke={color} strokeWidth="1.5" />
+      </svg>
+    ),
+    agents: (
+      <svg width="18" height="18" viewBox="0 0 18 18" fill="none">
+        <circle cx="9" cy="6" r="3" stroke={color} strokeWidth="1.5" />
+        <path d="M3 16c0-3.3 2.7-6 6-6s6 2.7 6 6" stroke={color} strokeWidth="1.5" strokeLinecap="round" />
+        <circle cx="9" cy="6" r="1" fill={color} />
+      </svg>
+    ),
+    activity: (
+      <svg width="18" height="18" viewBox="0 0 18 18" fill="none">
+        <path d="M1 9h3l2-5 3 10 2-5h6" stroke={color} strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
       </svg>
     ),
     settings: (
