@@ -2,9 +2,9 @@ export default function Header() {
   return (
     <header className="h-16 bg-card/80 backdrop-blur-md border-b border-border flex items-center justify-between px-6 sticky top-0 z-20">
       <div className="flex items-center gap-4">
-        <h1 className="text-[15px] font-bold text-white">Agent Dashboard</h1>
+        <h1 className="text-[15px] font-bold text-white">MR Screen</h1>
         <span className="text-[11px] font-medium text-muted px-2.5 py-1 rounded-md bg-white/[0.04] border border-border">
-          Multi-Agent Business Console
+          Enterprise Console
         </span>
       </div>
       <div className="flex items-center gap-4">
@@ -43,8 +43,8 @@ export default function Header() {
             AJ
           </div>
           <div className="flex flex-col">
-            <span className="text-[12px] font-semibold text-white leading-tight">Alex Johnson</span>
-            <span className="text-[10px] text-muted">Enterprise Admin</span>
+            <span className="text-[12px] font-semibold text-white leading-tight">Andrew</span>
+            <span className="text-[10px] text-muted">Admin</span>
           </div>
           <svg width="12" height="12" viewBox="0 0 12 12" fill="none" className="ml-1 text-muted">
             <path d="M3 5l3 3 3-3" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
